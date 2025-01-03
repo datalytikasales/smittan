@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 24 94% 53%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    
+    --accent: 240 5% 96%;
+    --accent-foreground: 222 47% 11%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 24 94% 53%;
+    
+    --radius: 0.5rem;
+
+    --sidebar-bg: 230 20% 14%;
+    --sidebar-hover: 270 23% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:text-[#F97316];
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute left-0 bottom-0 w-full h-0.5 bg-[#F97316] scale-x-0 transition-transform duration-300 origin-bottom-right;
+  }
+  
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .sidebar-menu-item {
+    @apply flex items-center gap-3 px-4 py-2 text-white hover:bg-sidebar-hover/10 transition-colors rounded-md;
+  }
+}
